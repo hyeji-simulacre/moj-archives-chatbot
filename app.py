@@ -62,10 +62,9 @@ with st.sidebar:
 
     st.markdown("---")
     st.markdown("**보유 현황**")
-    col1, col2, col3 = st.columns(3)
-    col1.metric("기록물", f"{len(data['records'])}")
-    col2.metric("전거", f"{len(data['authorities'])}")
-    col3.metric("웹기록", f"{len(data['websns']):,}")
+    st.markdown(f"- 기록물 **{len(data['records'])}**건")
+    st.markdown(f"- 전거 **{len(data['authorities'])}**건")
+    st.markdown(f"- 웹기록 **{len(data['websns']):,}**건")
 
     top_k = 30
 
