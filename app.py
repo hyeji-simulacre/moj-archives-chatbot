@@ -91,7 +91,7 @@ with st.sidebar:
 [GitHub](https://github.com/hyeji-simulacre/moj-archives-chatbot) |
 [법무부 기록관](https://mojarchives.go.kr/)
 """)
-    st.caption("ContextA 2026")
+    st.caption("2026")
 
 
 # --- Helper ---
