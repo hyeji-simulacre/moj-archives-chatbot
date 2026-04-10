@@ -8,7 +8,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from src.data_loader import load_all
 from src.embedder import embed_texts
-from src.vector_store import upsert_docs, get_or_create_collection
+from src.vector_store import upsert_docs
 from src.bm25_index import build_bm25
 
 

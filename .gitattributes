@@ -1,0 +1,2 @@
+chroma_db/websns_vectors.npz filter=lfs diff=lfs merge=lfs -text
+data/websns_full.json filter=lfs diff=lfs merge=lfs -text

@@ -19,9 +19,9 @@ st.set_page_config(
 
 @st.cache_resource
 def ensure_index():
-    chroma_exists = (CHROMA_DIR / "chroma.sqlite3").exists()
+    vec_exists = (CHROMA_DIR / "records_vectors.npz").exists()
     bm25_exists = (BM25_DIR / "records.pkl").exists()
-    if not chroma_exists or not bm25_exists:
+    if not vec_exists or not bm25_exists:
         with st.spinner("인덱스 빌드 중... (최초 1회, 약 5분 소요)"):
             from scripts.build_index import main as build_main
             build_main()
