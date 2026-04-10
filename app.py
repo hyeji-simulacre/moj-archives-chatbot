@@ -7,7 +7,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from src.data_loader import load_all
 from src.hybrid_search import hybrid_search
 from src.cross_reference import get_related_authorities, get_related_records
-from src.llm_answer import generate_answer_stream
+from src.llm_answer import generate_answer_stream, generate_answer
 from src.config import CHROMA_DIR, BM25_DIR
 
 st.set_page_config(
@@ -168,7 +168,15 @@ if prompt := st.chat_input("검색어를 입력하세요..."):
                 result_docs.append(doc)
 
         if result_docs:
-            response = st.write_stream(generate_answer_stream(prompt, result_docs))
+            try:
+                response = st.write_stream(generate_answer_stream(prompt, result_docs))
+            except Exception:
+                try:
+                    response = generate_answer(prompt, result_docs)
+                    st.markdown(response)
+                except Exception:
+                    response = "LLM 답변 생성에 실패했습니다. 아래 검색 결과를 직접 확인해주세요."
+                    st.warning(response)
 
             st.markdown("---")
             st.write(f"**검색 결과 {len(result_docs)}건**")

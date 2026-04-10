@@ -22,7 +22,7 @@ if not GEMINI_API_KEY:
         pass
 
 EMBEDDING_MODEL = "gemini-embedding-001"
-LLM_MODEL = "gemini-2.5-flash"
+LLM_MODEL = "gemini-2.0-flash"
 EMBEDDING_DIMENSION = 768
 EMBEDDING_BATCH_SIZE = 100
 WEBSNS_TEXT_LIMIT = 500
