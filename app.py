@@ -69,8 +69,29 @@ with st.sidebar:
     top_k = 30
 
     st.markdown("---")
-    st.caption("법무부 기록관 mojarchives.go.kr")
-    st.caption("Powered by Gemini + ChromaDB")
+    with st.expander("이 검색에 대하여"):
+        st.markdown("""
+**법무부 기록관 검색 챗봇**은 [법무부 기록관](https://mojarchives.go.kr/) 공개 데이터를 수집하여 자연어 검색을 제공합니다.
+
+**데이터 현황** (2026-04-10 수집)
+- 기록물 251건: 법무행정, 교정, 범죄예방, 출입국/외국인 컬렉션
+- 전거데이터 34건: 인물, 사건, 단체, 장소 전거 (1879~현재)
+- 웹기록 14,282건: Tistory, NAVER 블로그, Facebook, Threads, YouTube
+
+**검색 방식**
+- 하이브리드 검색: 키워드 매칭(BM25) + 의미 검색(Gemini Embedding)
+- 기록물/전거 우선 노출, 웹기록은 정확도 매칭 시 표시
+- 교차 참조: 기록물-전거 간 양방향 연결
+
+**기술 스택**
+- Gemini Embedding + numpy 벡터 검색
+- Gemini 2.0 Flash RAG 답변 생성
+- Streamlit 챗봇 UI
+
+[GitHub](https://github.com/hyeji-simulacre/moj-archives-chatbot) |
+[법무부 기록관](https://mojarchives.go.kr/)
+""")
+    st.caption("ContextA 2026")
 
 
 # --- Helper ---
