@@ -67,8 +67,7 @@ with st.sidebar:
     col2.metric("전거", f"{len(data['authorities'])}")
     col3.metric("웹기록", f"{len(data['websns']):,}")
 
-    st.markdown("---")
-    top_k = st.slider("검색 결과 수", 3, 20, 10)
+    top_k = 30
 
     st.markdown("---")
     st.caption("법무부 기록관 mojarchives.go.kr")
